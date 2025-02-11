@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+
+@theme{
+  --color-cream: hsl(30, 38%, 92%);
+  --color-cyan: hsl(158, 36%, 37%);
+  --color-cyan-dark: hsl(158, 36%, 16%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-blue: hsl(212, 21%, 14%);
+  --color-gray: hsl(228, 12%, 48%);
+
+  --font-sans: 'Montserrat', sans-serif;
+  --font-serif: 'Fraunces', serif;
+
+  --letter-spacing-widest: 0.4em;
+}
