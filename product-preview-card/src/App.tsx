@@ -1,4 +1,6 @@
 import './App.css'
+import desktopImage from './assets/image-product-desktop.jpg'
+import mobileImage from './assets/image-product-mobile.jpg'
 
 function App() {
   return (
@@ -8,8 +10,8 @@ function App() {
           <div className="card flex flex-col md:flex-row max-w-2xl rounded-xl overflow-hidden mx-auto">
             <div className="card__image basis-1/2">
               <picture>
-                <source media="(min-width: 40em)" srcSet="./src/assets/image-product-desktop.jpg" />
-                <img src="./src/assets/image-product-mobile.jpg" alt="Product image of Gabrielle Essence Eau De Parfum" />
+                <source media="(min-width: 40em)" srcSet={desktopImage} />
+                <img src={mobileImage} alt="Product image of Gabrielle Essence Eau De Parfum" />
               </picture>
             </div>
             <div className="card__body bg-white p-6 basis-1/2 flex flex-col justify-evenly">
