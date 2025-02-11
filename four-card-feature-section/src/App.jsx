@@ -39,7 +39,7 @@ function App() {
     <main className="min-h-screen bg-gray-50 px-6 py-16">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <header role="banner" className="text-center max-w-2xl mx-auto mb-16">
+        <header className="text-center max-w-2xl mx-auto mb-16">
           <h1 className="text-2xl md:text-4xl font-extralight text-gray-700 leading-normal">
             Reliable, efficient delivery
           </h1>
