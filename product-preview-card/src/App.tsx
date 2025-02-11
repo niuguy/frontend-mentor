@@ -11,7 +11,7 @@ function App() {
             <div className="card__image basis-1/2">
               <picture>
                 <source media="(min-width: 40em)" srcSet={desktopImage} />
-                <img src={mobileImage} alt="Product image of Gabrielle Essence Eau De Parfum" />
+                <img src={mobileImage} alt="Product image of Gabrielle Essence Eau De Parfum" className="w-full h-full object-cover sm:min-w-full sm:min-h-full" />
               </picture>
             </div>
             <div className="card__body bg-white p-6 basis-1/2 flex flex-col justify-evenly">
