@@ -12,11 +12,11 @@ function App() {
   return (
     <>
       <nav className="fill-[1440px] h-[108px] flex items-center justify-center">
-        <img src={logoSvg} />
+        <img src={logoSvg}  alt="logo"/>
       </nav>
 
       {/* Hero */}
-      <div className="relative w-full flex flex-col items-center justify-center text-center px-6
+      <main className="relative w-full flex flex-col items-center justify-center text-center px-6
         sm:fill-[375px] sm:h-[640px]
         md:fill-[768px] md:h-[761px]
         lg:fill-[1440px] lg:h-[488px]">
@@ -55,7 +55,7 @@ function App() {
             What is it?
           </button>
         </div>
-      </div>
+      </main>
 
       {/* Features */}
       <main className="relative">
@@ -137,9 +137,6 @@ function App() {
         </section>
       </main>
 
-      <footer>
-        {/* Footer content will go here */}
-      </footer>
     </>
   )
 }
