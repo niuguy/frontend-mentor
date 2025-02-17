@@ -75,14 +75,14 @@ const App = () => {
 
   return (
     <main className="min-h-screen bg-slate-800 flex items-center justify-center p-4">
-      <div className="bg-white rounded-[36px] w-full max-w-[375px] sm:max-w-[608px] lg:max-w-[904px] md:h-[878px] lg:h-[641px] p-6 sm:p-10 lg:p-2 overflow-hidden shadow-[0_15px_60px_0_rgba(0,0,0,0.25)]">
+      <div className="bg-white rounded-[36px] w-full max-w-[375px] sm:max-w-[608px] lg:max-w-[904px] md:h-[878px] lg:h-[641px] p-6 sm:p-10 lg:p-2 overflow-hidden shadow-[0_15px_60px_0_rgba(0,0,0,0.25)] ">
         {/* Content Container */}
         <div className="lg:flex lg:gap-16 lg:p-4">
           {/* Left Content */}
           <div className="flex flex-col space-y-10 lg:max-w-[376px]">
             {/* Mobile: Image appears first */}
             <div className="lg:hidden -mx-6 -mt-6">
-              <img src={mobileIllustration} alt="Mobile Illustration" className="w-full h-auto" />
+              <img src={mobileIllustration} alt="Mobile Illustration" className="w-full h-auto rounded-[12px]" />
             </div>
 
             {/* Text Content */}
@@ -138,7 +138,7 @@ const App = () => {
           </div>
           {/* Desktop: Image Section */}
           <div className="hidden lg:block flex-shrink-0 lg:max-w-auto lg:max-h-[563px]">
-            <img src={desktopIllustration} alt="Desktop Illustration" className="h-full w-full object-cover" />
+            <img src={desktopIllustration} alt="Desktop Illustration" className="h-full w-full object-cover rounded-[12px]" />
           </div>
         </div>
       </div>
