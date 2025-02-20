@@ -63,7 +63,7 @@ function TipCalculator({
   const tipOptions = [5, 10, 15, 25, 50];
 
   return (
-    <div className="min-h-screen bg-[#e0f2f2] flex flex-col items-center pt-8 font-mono">
+    <main className="min-h-screen bg-[#e0f2f2] flex flex-col items-center pt-8 font-mono">
       <h1 className="text-[#004d4d] text-2xl tracking-[0.5em] mb-12">
         <span className="block text-center">SPLI</span>
         <span className="block text-center">TTER</span>
@@ -75,6 +75,7 @@ function TipCalculator({
             <label className="text-[#004d4d] mb-2 block">Bill</label>
             <input
               type="number"
+              id="bill"
               value={bill}
               onChange={(e) => setBill(parseFloat(e.target.value) || 0)}
               className="w-full bg-[#f3f8fb] text-right text-[#004d4d] text-xl py-2 px-4 rounded-lg"
@@ -99,6 +100,7 @@ function TipCalculator({
               ))}
               <input
                 type="number"
+                id="customTip"
                 placeholder="Custom"
                 value={customTip}
                 onChange={(e) => {
@@ -119,6 +121,7 @@ function TipCalculator({
             </div>
             <input
               type="number"
+              id="people"
               value={people}
               onChange={(e) => setPeople(parseInt(e.target.value) || 0)}
               className={`w-full bg-[#f3f8fb] text-right text-[#004d4d] text-xl py-2 px-4 rounded-lg ${
@@ -159,6 +162,6 @@ function TipCalculator({
           </button>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
