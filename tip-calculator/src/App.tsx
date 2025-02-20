@@ -47,6 +47,18 @@ function TipCalculator({
   tipAmountPerPerson,
   totalPerPerson,
   onReset
+}: {
+  bill: number;
+  setBill: (value: number) => void;
+  tipPercentage: number;
+  setTipPercentage: (value: number) => void;
+  people: number;
+  setPeople: (value: number) => void;
+  customTip: string;
+  setCustomTip: (value: string) => void;
+  tipAmountPerPerson: number;
+  totalPerPerson: number;
+  onReset: () => void;
 }) {
   const tipOptions = [5, 10, 15, 25, 50];
 
