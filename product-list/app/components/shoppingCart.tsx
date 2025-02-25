@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { OrderConfirmationModal } from './OrderConfirmationModal';
+import illustrationEmptyCart from '../assets/images/illustration-empty-cart.svg';
 
 export function ShoppingCart() {
   const { cartItems, removeFromCart, updateQuantity } = useCart();
@@ -20,7 +21,14 @@ export function ShoppingCart() {
         <h2 className="text-xl font-semibold mb-4">Your Cart ({cartItems.length})</h2>
         
         {cartItems.length === 0 ? (
-          <p className="text-gray-500 py-4">Your cart is empty</p>
+          <div className="flex flex-col items-center py-6">
+            <img 
+              src={illustrationEmptyCart} 
+              alt="Empty cart" 
+              className="w-32 h-32 mb-4"
+            />
+            <p className="text-gray-500 text-center">Your added items will appear here</p>
+          </div>
         ) : (
           cartItems.map((item) => (
             <div key={item.id} className="flex items-center justify-between py-3 border-b">
