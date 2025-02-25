@@ -21,7 +21,6 @@ interface Product {
 export function ProductList() {
   const [products] = useState<Product[]>(productData);
   const { addToCart, updateQuantity, getItemQuantity } = useCart();
-  // 动态导入图片
   const importAll = (r: Record<string, { default: string }>) => {
     const imageMap: Record<string, string> = {};
     Object.entries(r).forEach(([key, value]) => {
