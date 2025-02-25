@@ -18,10 +18,20 @@ export function OrderConfirmationModal({ isOpen, onClose }: OrderConfirmationMod
     onClose();
   };
   
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    // Only close if the backdrop itself was clicked, not its children
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+  
   if (!isOpen) return null;
   
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center md:items-center">
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center md:items-center"
+      onClick={handleBackdropClick}
+    >
       <div className="bg-white w-full h-full md:h-auto md:max-w-md md:rounded-lg md:shadow-xl">
         <div className="p-6 h-full flex flex-col">
           <div className="flex justify-center mb-4 mt-4">
