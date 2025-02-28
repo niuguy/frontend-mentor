@@ -78,88 +78,109 @@ const Comment = ({
 
   return (
     <div className="comment-thread mb-4">
-      <div className="comment bg-white rounded-lg p-4 shadow-sm mb-4">
-        <div className="comment-header flex items-center mb-3">
-          <img 
-            src={comment.user.image.webp || comment.user.image.png} 
-            alt={comment.user.username} 
-            className="w-8 h-8 rounded-full mr-3"
-          />
-          <div className="font-bold mr-2">{comment.user.username}</div>
-          {isCurrentUser && (
-            <span className="bg-blue-600 text-white text-xs px-2 py-0.5 rounded">you</span>
-          )}
-          <div className="text-gray-500 ml-2">{comment.createdAt}</div>
+      <div className="comment bg-white rounded-lg p-4 shadow-sm mb-4 md:flex">
+        {/* Vertical vote bar on the left for desktop, hidden on mobile */}
+        <div className="score-container hidden md:flex md:flex-col items-center bg-gray-100 rounded-lg mr-4 self-start">
+          <button 
+            className="p-2 text-gray-500 hover:text-blue-600"
+            onClick={handleUpvote}
+          >
+            <img src={iconPlus} alt="Upvote" />
+          </button>
+          <span className="font-bold text-blue-600 py-2">{comment.score}</span>
+          <button 
+            className="p-2 text-gray-500 hover:text-blue-600"
+            onClick={handleDownvote}
+          >
+            <img src={iconMinus} alt="Downvote" />
+          </button>
         </div>
         
-        {isEditing ? (
-          <div className="edit-form">
-            <textarea
-              className="w-full p-3 border border-gray-300 rounded-lg mb-3"
-              value={editContent}
-              onChange={(e) => setEditContent(e.target.value)}
-              rows={3}
+        {/* Main comment content */}
+        <div className="flex-1">
+          <div className="comment-header flex items-center mb-3">
+            <img 
+              src={comment.user.image.webp || comment.user.image.png} 
+              alt={comment.user.username} 
+              className="w-8 h-8 rounded-full mr-3"
             />
-            <button
-              className="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg"
-              onClick={handleSubmitEdit}
-            >
-              UPDATE
-            </button>
-          </div>
-        ) : (
-          <div className="comment-content mb-3">
-            {comment.replyingTo && (
-              <span className="font-bold text-blue-600">@{comment.replyingTo} </span>
+            <div className="font-bold mr-2">{comment.user.username}</div>
+            {isCurrentUser && (
+              <span className="bg-blue-600 text-white text-xs px-2 py-0.5 rounded">you</span>
             )}
-            {comment.content}
-          </div>
-        )}
-        
-        <div className="comment-actions flex justify-between">
-          <div className="score-container flex items-center bg-gray-100 rounded-lg">
-            <button 
-              className="p-2 text-gray-500 hover:text-blue-600"
-              onClick={handleUpvote}
-            >
-              <img src={iconPlus} alt="Upvote" />
-            </button>
-            <span className="font-bold text-blue-600 px-3">{comment.score}</span>
-            <button 
-              className="p-2 text-gray-500 hover:text-blue-600"
-              onClick={handleDownvote}
-            >
-              <img src={iconMinus} alt="Downvote" />
-            </button>
-          </div>
-          
-          <div className="action-buttons flex">
-            {isCurrentUser ? (
-              <>
-                <button 
-                  className="flex items-center mr-4 text-red-500 font-bold"
-                  onClick={handleDelete}
-                >
-                  <img src={iconDelete} alt="Delete" className="mr-1" />
-                  Delete
-                </button>
+            <div className="text-gray-500 ml-2">{comment.createdAt}</div>
+            
+            <div className="action-buttons flex ml-auto">
+              {isCurrentUser ? (
+                <>
+                  <button 
+                    className="flex items-center mr-4 text-red-500 font-bold"
+                    onClick={handleDelete}
+                  >
+                    <img src={iconDelete} alt="Delete" className="mr-1" />
+                    Delete
+                  </button>
+                  <button 
+                    className="flex items-center text-blue-600 font-bold"
+                    onClick={handleEdit}
+                  >
+                    <img src={iconEdit} alt="Edit" className="mr-1" />
+                    Edit
+                  </button>
+                </>
+              ) : (
                 <button 
                   className="flex items-center text-blue-600 font-bold"
-                  onClick={handleEdit}
+                  onClick={handleReply}
                 >
-                  <img src={iconEdit} alt="Edit" className="mr-1" />
-                  Edit
+                  <img src={iconReply} alt="Reply" className="mr-1" />
+                  Reply
                 </button>
-              </>
-            ) : (
-              <button 
-                className="flex items-center text-blue-600 font-bold"
-                onClick={handleReply}
+              )}
+            </div>
+          </div>
+          
+          {isEditing ? (
+            <div className="edit-form">
+              <textarea
+                className="w-full p-3 border border-gray-300 rounded-lg mb-3"
+                value={editContent}
+                onChange={(e) => setEditContent(e.target.value)}
+                rows={3}
+              />
+              <button
+                className="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg"
+                onClick={handleSubmitEdit}
               >
-                <img src={iconReply} alt="Reply" className="mr-1" />
-                Reply
+                UPDATE
               </button>
-            )}
+            </div>
+          ) : (
+            <div className="comment-content mb-3">
+              {comment.replyingTo && (
+                <span className="font-bold text-blue-600">@{comment.replyingTo} </span>
+              )}
+              {comment.content}
+            </div>
+          )}
+          
+          {/* Horizontal vote bar for mobile, hidden on desktop */}
+          <div className="flex justify-between items-center md:hidden">
+            <div className="score-container flex items-center bg-gray-100 rounded-lg">
+              <button 
+                className="p-2 text-gray-500 hover:text-blue-600"
+                onClick={handleUpvote}
+              >
+                <img src={iconPlus} alt="Upvote" />
+              </button>
+              <span className="font-bold text-blue-600 px-3">{comment.score}</span>
+              <button 
+                className="p-2 text-gray-500 hover:text-blue-600"
+                onClick={handleDownvote}
+              >
+                <img src={iconMinus} alt="Downvote" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
