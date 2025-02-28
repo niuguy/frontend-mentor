@@ -13,3 +13,24 @@ body {
     color-scheme: dark;
   }
 }
+
+/* Custom styles for the comments section */
+.comment-thread {
+  transition: all 0.3s ease;
+}
+
+.score-container button {
+  transition: all 0.2s ease;
+}
+
+.score-container button:hover {
+  opacity: 0.8;
+}
+
+.action-buttons button {
+  transition: all 0.2s ease;
+}
+
+.action-buttons button:hover {
+  opacity: 0.8;
+}

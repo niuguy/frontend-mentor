@@ -1,13 +1,17 @@
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+import CommentsSection from "../components/CommentsSection";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Interactive Comments Section" },
+    { name: "description", content: "Interactive comments section challenge from Frontend Mentor" },
   ];
 }
 
 export default function Home() {
-  return <Welcome />;
+  return (
+    <div className="min-h-screen bg-gray-100 py-8">
+      <CommentsSection />
+    </div>
+  );
 }
